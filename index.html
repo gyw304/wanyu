@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="GBK">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+	<title>万宇</title>
+    <style>
+        input{
+            -webkit-appearance: none;
+        }
+        body { margin: 0; background-color: #000}
+        #signup-page{
+            position: absolute;
+            left:0;
+            top:0;
+            right:0;
+            bottom:0;
+            background: url('assets/bg9.jpg');
+            background-size: 100% 100%;
+            display: none;
+        }
+        .bc{
+            width:16rem;
+            height:25.075rem;
+            background-size: 16rem;
+            background-image: url('assets/bc.png');
+            position: absolute;
+            left:50%;
+            margin-left:-8rem;
+            bottom:1rem;
+        }
+        .form{
+            width:9.5rem;
+            position: absolute;
+            top:14.3rem;
+            left:50%;
+            margin-left:-2.9rem
+        }
+        .form .frm input{
+            width:6rem;
+            height:1rem;
+            border: 1px solid #1a79a8;
+            background-color: rgba(0,0,0,.5);
+            margin:0;
+            vertical-align: top;
+            color:#fff
+        }
+        .sub-btn{
+            width:3rem;
+            height:3rem;
+            border: 1px solid #1a79a8;
+            background-color: rgba(0,0,0,.5);
+            position: absolute;
+            right:0;
+            top:0;
+            color:#fff;
+            font-size:.8rem;
+        }
+        .ewm{
+            width: 4rem;
+            height:4rem;
+            position: absolute;
+            left:50%;
+            margin-left:-1.2rem;
+            bottom:12rem
+        }
+    </style>
+    <script src="phaser.min.js"></script>
+    <script src="Boot.js"></script>
+    <script src="Preloader.js"></script>
+    <script src="scene1.js"></script>
+    <script src="scene2.js"></script>
+    <script src="scene3.js"></script>
+    <script src="scene4.js"></script>
+    <script src="scene5.js"></script>
+    <script src="scene6.js"></script>
+    <script src="scene7.js"></script>
+    <script src="scene8.js"></script>
+</head>
+<body style="overflow: hidden">
+
+    <div id="signup-page">
+        <div class="bc">
+            <img src="assets/ewm.jpg" class="ewm"  alt=""/>
+            <div class="form">
+                <div class="frm"><input type="text"/></div>
+                <div class="frm" style="margin-top:.7rem"><input type="text"/></div>
+                <input type="submit" value="提交" class="sub-btn"/>
+            </div>
+
+        </div>
+    </div>
+
+<script>
+
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+
+
+    (function() {
+        var game = new Phaser.Game(640, 1008, Phaser.CANVAS, 'game');
+        game.state.add('Boot', MyGame.Boot);
+        game.state.add('Preloader', MyGame.Preloader);
+        game.state.add('scene1', MyGame.scene1);
+        game.state.add('scene2', MyGame.scene2);
+        game.state.add('scene3', MyGame.scene3);
+        game.state.add('scene4', MyGame.scene4);
+        game.state.add('scene5', MyGame.scene5);
+        game.state.add('scene6', MyGame.scene6);
+        game.state.add('scene7', MyGame.scene7);
+        game.state.add('scene8', MyGame.scene8);
+        game.state.start('Boot');
+    })();
+</script>
+    <script src="inpMusic.js"></script>
+</body>
+</html>
